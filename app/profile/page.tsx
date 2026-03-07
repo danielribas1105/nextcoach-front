@@ -1,11 +1,13 @@
-import { redirect } from "next/navigation"
-import { headers } from "next/headers"
-import { authClient } from "@/app/_lib/auth-client"
-import { getUserTrainData, getHomeData } from "@/app/_lib/api/fetch-generated"
 import dayjs from "dayjs"
+import { BicepsFlexed, Ruler, User, Weight } from "lucide-react"
+import { headers } from "next/headers"
+import { redirect } from "next/navigation"
+
+import { getHomeData, getUserTrainData } from "@/app/_lib/api/fetch-generated"
 import { BottomNav } from "@/app/components/bottom-nav"
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
-import { Weight, Ruler, BicepsFlexed, User } from "lucide-react"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+
+import { authClient } from "../_lib/api/auth-client"
 import { LogoutButton } from "./components/logout-button"
 
 export default async function ProfilePage() {
@@ -54,7 +56,10 @@ export default async function ProfilePage() {
 				<div className="flex w-full items-center justify-between">
 					<div className="flex items-center gap-3">
 						<Avatar className="size-[52px]">
-							<AvatarImage src={user.image ?? undefined} alt={user.name} />
+							<AvatarImage
+								src={user.image ?? undefined}
+								alt={user.name}
+							/>
 							<AvatarFallback className="text-lg">
 								{user.name?.charAt(0)?.toUpperCase()}
 							</AvatarFallback>
@@ -105,7 +110,9 @@ export default async function ProfilePage() {
 						</div>
 						<div className="flex flex-col items-center gap-1.5">
 							<span className="font-heading text-2xl font-semibold leading-[1.15] text-foreground">
-								{bodyFatPercentage != null ? `${bodyFatPercentage}%` : "-"}
+								{bodyFatPercentage != null
+									? `${bodyFatPercentage}%`
+									: "-"}
 							</span>
 							<span className="font-heading text-xs uppercase leading-[1.4] text-muted-foreground">
 								Gc

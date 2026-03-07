@@ -1,8 +1,10 @@
-import { redirect } from "next/navigation"
-import { authClient } from "@/app/_lib/auth-client"
-import { headers } from "next/headers"
 import dayjs from "dayjs"
+import { headers } from "next/headers"
+import { redirect } from "next/navigation"
+
 import { Chat } from "@/app/components/chat"
+
+import { authClient } from "../_lib/api/auth-client"
 import { getHomeData, getUserTrainData } from "../_lib/api/fetch-generated"
 
 export default async function OnboardingPage() {

@@ -1,5 +1,5 @@
-import Image from "next/image"
 import { Flame } from "lucide-react"
+import Image from "next/image"
 
 interface StreakBannerProps {
 	workoutStreak: number

@@ -1,8 +1,9 @@
 "use client"
 
-import { useRouter } from "next/navigation"
 import { LogOut } from "lucide-react"
-import { authClient } from "@/app/_lib/auth-client"
+import { useRouter } from "next/navigation"
+
+import { authClient } from "@/app/_lib/api/auth-client"
 import { Button } from "@/components/ui/button"
 
 export function LogoutButton() {

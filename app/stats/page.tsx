@@ -1,17 +1,19 @@
-import { redirect } from "next/navigation"
-import { authClient } from "@/app/_lib/auth-client"
-import { headers } from "next/headers"
 import dayjs from "dayjs"
 import { CircleCheck, CirclePercent, Hourglass } from "lucide-react"
+import { headers } from "next/headers"
+import { redirect } from "next/navigation"
+
 import { BottomNav } from "@/app/components/bottom-nav"
-import { StreakBanner } from "./components/streak-banner"
-import { StatsHeatmap } from "./components/stats-heatmap"
-import { StatCard } from "./components/stat-card"
+
+import { authClient } from "../_lib/api/auth-client"
 import {
 	getHomeData,
 	getStats,
 	getUserTrainData,
 } from "../_lib/api/fetch-generated"
+import { StatCard } from "./components/stat-card"
+import { StatsHeatmap } from "./components/stats-heatmap"
+import { StreakBanner } from "./components/streak-banner"
 
 function formatTotalTime(totalSeconds: number): string {
 	const hours = Math.floor(totalSeconds / 3600)

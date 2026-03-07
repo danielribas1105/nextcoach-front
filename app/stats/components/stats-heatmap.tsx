@@ -1,5 +1,6 @@
-import { GetStats200ConsistencyByDay } from "@/app/_lib/api/fetch-generated"
 import dayjs from "dayjs"
+
+import { GetStats200ConsistencyByDay } from "@/app/_lib/api/fetch-generated"
 
 interface StatsHeatmapProps {
 	consistencyByDay: GetStats200ConsistencyByDay

@@ -1,20 +1,22 @@
-import { redirect } from "next/navigation"
-import { authClient } from "@/app/_lib/auth-client"
-import { headers } from "next/headers"
 import dayjs from "dayjs"
+import { Calendar, Dumbbell, Timer } from "lucide-react"
+import { headers } from "next/headers"
 import Image from "next/image"
-import { Calendar, Timer, Dumbbell } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { BottomNav } from "@/app/components/bottom-nav"
-import { BackButton } from "./components/back-button"
-import { ExerciseCard } from "./components/exercise-card"
-import { StartWorkoutButton } from "./components/start-workout-button"
-import { CompleteWorkoutButton } from "./components/complete-workout-button"
+import { redirect } from "next/navigation"
+
+import { authClient } from "@/app/_lib/api/auth-client"
 import {
 	getHomeData,
 	getUserTrainData,
 	getWorkoutDay,
 } from "@/app/_lib/api/fetch-generated"
+import { BottomNav } from "@/app/components/bottom-nav"
+import { Button } from "@/components/ui/button"
+
+import { BackButton } from "./components/back-button"
+import { CompleteWorkoutButton } from "./components/complete-workout-button"
+import { ExerciseCard } from "./components/exercise-card"
+import { StartWorkoutButton } from "./components/start-workout-button"
 
 const WEEKDAY_LABELS: Record<string, string> = {
 	MONDAY: "SEGUNDA",

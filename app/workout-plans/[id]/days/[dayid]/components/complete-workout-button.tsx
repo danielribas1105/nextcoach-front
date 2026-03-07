@@ -1,7 +1,9 @@
 "use client"
 
 import { useTransition } from "react"
+
 import { Button } from "@/components/ui/button"
+
 import { completeWorkoutAction } from "../_actions"
 
 interface CompleteWorkoutButtonProps {

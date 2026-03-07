@@ -1,9 +1,10 @@
 "use client"
 
 import { CircleHelp, Zap } from "lucide-react"
-import { useQueryStates, parseAsBoolean, parseAsString } from "nuqs"
-import { Button } from "@/components/ui/button"
+import { parseAsBoolean, parseAsString, useQueryStates } from "nuqs"
+
 import { GetWorkoutDay200ExercisesItem } from "@/app/_lib/api/fetch-generated"
+import { Button } from "@/components/ui/button"
 
 interface ExerciseCardProps {
 	exercise: GetWorkoutDay200ExercisesItem

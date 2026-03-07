@@ -1,15 +1,15 @@
-import { redirect } from "next/navigation"
-import { authClient } from "@/app/_lib/auth-client"
-import { headers } from "next/headers"
-
 import dayjs from "dayjs"
+import { Flame } from "lucide-react"
+import { headers } from "next/headers"
 import Image from "next/image"
 import Link from "next/link"
-import { Flame } from "lucide-react"
+import { redirect } from "next/navigation"
+
+import { authClient } from "@/app/_lib/api/auth-client"
 import { getHomeData, getUserTrainData } from "@/app/_lib/api/fetch-generated"
+import { BottomNav } from "@/app/components/bottom-nav"
 import { ConsistencyTracker } from "@/app/components/consistency-tracker"
 import { WorkoutDayCard } from "@/app/components/workout-day-card"
-import { BottomNav } from "@/app/components/bottom-nav"
 
 export default async function Home() {
 	const session = await authClient.getSession({

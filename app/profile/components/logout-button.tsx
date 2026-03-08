@@ -3,7 +3,7 @@
 import { LogOut } from "lucide-react"
 import { useRouter } from "next/navigation"
 
-import { authClient } from "@/app/_lib/api/auth-client"
+import { authClient } from "@/app/_lib/auth-client"
 import { Button } from "@/components/ui/button"
 
 export function LogoutButton() {

@@ -5,12 +5,12 @@ import { redirect } from "next/navigation"
 
 import { BottomNav } from "@/app/components/bottom-nav"
 
-import { authClient } from "../_lib/api/auth-client"
 import {
 	getHomeData,
 	getStats,
 	getUserTrainData,
 } from "../_lib/api/fetch-generated"
+import { authClient } from "../_lib/auth-client"
 import { StatCard } from "./components/stat-card"
 import { StatsHeatmap } from "./components/stats-heatmap"
 import { StreakBanner } from "./components/streak-banner"

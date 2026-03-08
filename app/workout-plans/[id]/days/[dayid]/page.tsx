@@ -4,12 +4,12 @@ import { headers } from "next/headers"
 import Image from "next/image"
 import { redirect } from "next/navigation"
 
-import { authClient } from "@/app/_lib/api/auth-client"
 import {
 	getHomeData,
 	getUserTrainData,
 	getWorkoutDay,
 } from "@/app/_lib/api/fetch-generated"
+import { authClient } from "@/app/_lib/auth-client"
 import { BottomNav } from "@/app/components/bottom-nav"
 import { Button } from "@/components/ui/button"
 

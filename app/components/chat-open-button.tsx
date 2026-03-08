@@ -1,7 +1,7 @@
 "use client"
 
 import { Sparkles } from "lucide-react"
-import { useQueryStates, parseAsBoolean, parseAsString } from "nuqs"
+import { parseAsBoolean, parseAsString, useQueryStates } from "nuqs"
 
 export function ChatOpenButton() {
 	const [, setChatParams] = useQueryStates({

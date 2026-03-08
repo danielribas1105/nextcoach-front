@@ -4,8 +4,8 @@ import { redirect } from "next/navigation"
 
 import { Chat } from "@/app/components/chat"
 
-import { authClient } from "../_lib/api/auth-client"
 import { getHomeData, getUserTrainData } from "../_lib/api/fetch-generated"
+import { authClient } from "../_lib/auth-client"
 
 export default async function OnboardingPage() {
 	const session = await authClient.getSession({

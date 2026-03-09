@@ -29,7 +29,7 @@ const anton = Anton({
 })
 
 export const metadata: Metadata = {
-	title: "FIT.AI",
+	title: "NextCoach.AI",
 	description: "O app que vai transformar a forma como você treina.",
 }
 

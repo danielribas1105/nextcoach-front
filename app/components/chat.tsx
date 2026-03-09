@@ -1,19 +1,21 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-import { useChat } from "@ai-sdk/react"
-import { DefaultChatTransport } from "ai"
-import { useQueryStates, parseAsBoolean, parseAsString } from "nuqs"
-import { Sparkles, X, ArrowUp } from "lucide-react"
-import { Streamdown } from "streamdown"
 import "streamdown/styles.css"
-import { useForm } from "react-hook-form"
-import { z } from "zod"
+
+import { useChat } from "@ai-sdk/react"
 import { zodResolver } from "@hookform/resolvers/zod"
+import { DefaultChatTransport } from "ai"
+import { ArrowUp, Sparkles, X } from "lucide-react"
+import Link from "next/link"
+import { parseAsBoolean, parseAsString, useQueryStates } from "nuqs"
+import { useEffect, useRef } from "react"
+import { useForm } from "react-hook-form"
+import { Streamdown } from "streamdown"
+import { z } from "zod"
+
 import { Button } from "@/components/ui/button"
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import Link from "next/link"
 
 /* Usar o Gemini como IA */
 
@@ -110,13 +112,13 @@ export function Chat({ embedded = false, initialMessage }: ChatProps) {
 			className={
 				embedded
 					? "flex h-svh flex-col bg-background"
-					: "flex flex-1 flex-col overflow-hidden rounded-[20px] bg-background"
+					: "flex flex-1 flex-col overflow-hidden rounded-4xl bg-background"
 			}
 		>
 			<div className="flex shrink-0 items-center justify-between border-b border-border p-5">
 				<div className="flex items-center gap-2">
 					<div className="flex items-center justify-center rounded-full bg-primary/8 border border-primary/8 p-3">
-						<Sparkles className="size-[18px] text-primary" />
+						<Sparkles className="size-4.5 text-primary" />
 					</div>
 					<div className="flex flex-col gap-1.5">
 						<span className="font-heading text-base font-semibold text-foreground">
@@ -124,13 +126,15 @@ export function Chat({ embedded = false, initialMessage }: ChatProps) {
 						</span>
 						<div className="flex items-center gap-1">
 							<div className="size-2 rounded-full bg-online" />
-							<span className="font-heading text-xs text-primary">Online</span>
+							<span className="font-heading text-xs text-primary">
+								Online
+							</span>
 						</div>
 					</div>
 				</div>
 				{embedded ? (
 					<Button variant="ghost" size="sm" asChild>
-						<Link href="/">Acessar FIT.AI</Link>
+						<Link href="/">Acessar NextCoach.AI</Link>
 					</Button>
 				) : (
 					<Button variant="ghost" size="icon" onClick={handleClose}>
@@ -145,8 +149,8 @@ export function Chat({ embedded = false, initialMessage }: ChatProps) {
 						key={message.id}
 						className={
 							message.role === "assistant"
-								? "flex flex-col items-start pl-5 pr-[60px] pt-5"
-								: "flex flex-col items-end pl-[60px] pr-5 pt-5"
+								? "flex flex-col items-start pl-5 pr-15 pt-5"
+								: "flex flex-col items-end pl-15 pr-5 pt-5"
 						}
 					>
 						<div
@@ -163,7 +167,8 @@ export function Chat({ embedded = false, initialMessage }: ChatProps) {
 											key={index}
 											isAnimating={
 												isStreaming &&
-												messages[messages.length - 1]?.id === message.id
+												messages[messages.length - 1]?.id ===
+													message.id
 											}
 											className="font-heading text-sm leading-relaxed text-foreground"
 										>
@@ -176,7 +181,9 @@ export function Chat({ embedded = false, initialMessage }: ChatProps) {
 									{message.parts
 										.filter((part) => part.type === "text")
 										.map(
-											(part) => (part as { type: "text"; text: string }).text,
+											(part) =>
+												(part as { type: "text"; text: string })
+													.text,
 										)
 										.join("")}
 								</p>
@@ -226,7 +233,7 @@ export function Chat({ embedded = false, initialMessage }: ChatProps) {
 							type="submit"
 							disabled={!form.watch("message").trim() || isLoading}
 							size="icon"
-							className="size-[42px] shrink-0 rounded-full"
+							className="size-10.5 shrink-0 rounded-full"
 						>
 							<ArrowUp className="size-5" />
 						</Button>
@@ -239,7 +246,7 @@ export function Chat({ embedded = false, initialMessage }: ChatProps) {
 	if (embedded) return chatContent
 
 	return (
-		<div className="fixed inset-0 z-[60]">
+		<div className="fixed inset-0 z-60">
 			<div
 				className="absolute inset-0 bg-foreground/30"
 				onClick={handleClose}
